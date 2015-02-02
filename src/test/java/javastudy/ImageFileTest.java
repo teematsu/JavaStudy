@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class ImageFileTest {
 
     @Test
-    public void JPEGの場合() throws IOException {
+    public void getFormatName_JPEGの場合() throws IOException {
         URL imageFile = getClass().getResource("ImageFileTest/flower.jpg");
         ImageInputStream iis = ImageIO.createImageInputStream(imageFile.openStream());
         Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
@@ -31,7 +31,7 @@ public class ImageFileTest {
     }
 
     @Test
-    public void PNGの場合() throws IOException {
+    public void getFormatName_PNGの場合() throws IOException {
         URL imageFile = getClass().getResource("ImageFileTest/flower.png");
         ImageInputStream iis = ImageIO.createImageInputStream(imageFile.openStream());
         Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
@@ -47,7 +47,7 @@ public class ImageFileTest {
     }
 
     @Test
-    public void PDFの場合() throws IOException {
+    public void getFormatName_PDFの場合() throws IOException {
         URL imageFile = getClass().getResource("ImageFileTest/sample.pdf");
         ImageInputStream iis = ImageIO.createImageInputStream(imageFile.openStream());
         Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
@@ -56,13 +56,16 @@ public class ImageFileTest {
     }
 
     @Test
-    public void 空のファイルの場合() throws IOException {
+    public void getFormatName_空のファイルの場合() throws IOException {
         URL imageFile = getClass().getResource("ImageFileTest/empty.dat");
         ImageInputStream iis = ImageIO.createImageInputStream(imageFile.openStream());
         Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
 
         assertThat(readers.hasNext(), is(false));
     }
+ 
+    
+    
     
 }
 

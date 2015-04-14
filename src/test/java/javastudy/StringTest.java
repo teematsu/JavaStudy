@@ -79,4 +79,15 @@ public class StringTest {
         String actual = StringUtils.join(new String[]{str1, str2});
         assertThat(actual, is("aaa"));
     }
+    
+    @Test
+    public void isWhitespace_半角空白() {
+        assertThat(Character.isWhitespace(' '), is(true));
+    }
+
+    @Test
+    public void isWhitespace_全角空白() {
+        assertThat(Character.isWhitespace('　'), is(true));
+    }
+
 }
